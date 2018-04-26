@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>制作一份简单的菜单动画效果</title>
+	</head>
+	<style>
+		p{text-align: center;}
+		#para{
+		display:inline-block;
+		font-size:24px;
+		color:#3e3734;
+		text-align: center;
+		transition:color 0.5s;
+		-moz-transition:color 0.5s;
+		-webkit-transition:color 0.5s;
+		-o-transition:color 0.5s;
+		}
+		
+		#btmborder{
+			height:3px;
+			width:0;
+			background:#5167c9;
+			margin:5px auto;
+			transition:width 0.5s cubic-bezier(0.25,0.5,0.75,1);
+			-moz-transition:width 0.5s cubic-bezier(0.25,0.5,0.75,1);
+			-webkit-transition:width 0.5s cubic-bezier(0.25,0.5,0.75,1);
+			-o-transition:width 0.5s cubic-bezier(0.25,0.5,0.75,1);
+		}
+		
+		form{text-align: center;margin-top:20px;}
+		.btn{border:1px solid lightgray;border-radius:5px;background-color:white;font-size:16px;/*padding:5px*/}  /*是不是不设置padding点击button就会晃动*/
+	</style>
+	<body>
+		<p><span id="para">前端学院</span></p>
+		<div id="btmborder"></div>
+		<form><input type="button" value="切换样式" class="btn"></form>
+		<script>
+			function $(id){return document.querySelector(id)};
+			var btn=$(".btn");
+			var para=$("#para");
+			var line=$("#btmborder");
+			var flag=false;
+			btn.onclick=function(){
+				if(!flag){
+					para.style.color="#5167c9";
+					line.style.width="100px"
+					flag=true;
+				}else{
+					para.style.color="#3E3734";
+					line.style.width="0";
+					flag=false;
+				}
+			}
+		</script>
+	</body>
+</html>
